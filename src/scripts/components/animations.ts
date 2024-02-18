@@ -1,3 +1,4 @@
+import { GameObj } from "kaboom";
 import k from "../kaboom";
 
 export default function Animations() {
@@ -31,13 +32,10 @@ export default function Animations() {
     })
     }
   });
-
-  const enemies = k.get("enemy");
+  
   const player = k.get("player")[0];
 
-  enemies.forEach((enemy) => {
-    enemy.onUpdate(() =>{
-      enemy.move(player.pos.angle(enemy.pos), 40);
-    });
+  k.onUpdate('enemy', (e: GameObj) => {
+    e.moveTo(player.pos.x, player.pos.y, e.speed);
   });
 }
