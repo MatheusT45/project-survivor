@@ -11,7 +11,8 @@ k.loadSprite("player", "./spritesheet.png", {
   anims: {
       idle: {
           from: 0,
-          to: 0,
+          to: 19,
+          loop: true,
       },
   },
 });
@@ -32,8 +33,8 @@ k.loadSprite("bullet", "./spritesheet.png", {
   sliceY: 10,
   anims: {
       idle: {
-          from: 10,
-          to: 10,
+          from: 90,
+          to: 90,
       },
   },
 });

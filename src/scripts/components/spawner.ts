@@ -8,7 +8,7 @@ export default function Spawn() {
     k.sprite('player', {
       anim: "idle",
     }),
-    k.area({ scale: 0.6 }),
+    k.area({ scale: 0.6}),
     k.health(8),
     k.pos(k.center()),
     k.rotate(0),
