@@ -39,6 +39,17 @@ k.loadSprite("bullet", "./spritesheet.png", {
   },
 });
 
+k.loadSprite("energy", "./spritesheet.png", {
+  sliceX: 10,
+  sliceY: 10,
+  anims: {
+      idle: {
+          from: 80,
+          to: 80,
+      },
+  },
+});
+
 k.loadSprite("dirt", "./full-dirt.png");
 
 // k.loadSprite('dirt', "./tilemap.png", {

@@ -16,6 +16,7 @@ export default function Spawn() {
     k.scale(2),
     {
       speed: 320, // custom property to store movement speed
+      points: 0,
     },
   ], );
 
@@ -41,4 +42,11 @@ export default function Spawn() {
       }
     ]);
   });
+  
+  k.add([
+    'points-counter',
+    k.text("$ 0"),
+    k.pos(24, 24),
+    { value: 0 },
+  ]);
 }
