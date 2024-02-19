@@ -20,7 +20,7 @@ export default function Spawn() {
   ], );
 
 
-  k.loop(0.6, () => {
+  k.loop(0.8, () => {
     const {x, y} = getRandomPosition();
 
     // prevents enemies from spawning on top of the player
