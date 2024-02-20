@@ -1,5 +1,6 @@
 import k from '../kaboom';
 import { getRandomPosition } from '../utils/random';
+import { loadEnemyHealthBar } from './loaders/ui';
 
 export default function spawn() {
   k.add([
@@ -17,9 +18,9 @@ export default function spawn() {
       speed: 320, // custom property to store movement speed
       points: 0,
       attackSpeed: 1,
+      maxHealth: 8,
     },
-  ], );
-
+  ]);
 
   let enemyCounter = 0;
 
@@ -42,8 +43,10 @@ export default function spawn() {
       k.anchor('center'),
       {
         speed: 120,
+        maxHealth: 4,
       }
     ]);
+    loadEnemyHealthBar();
     enemyCounter++;
     
     if(enemyCounter === 12) {

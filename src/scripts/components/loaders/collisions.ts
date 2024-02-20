@@ -1,6 +1,7 @@
 import { GameObj } from "kaboom";
 import k from "../../kaboom";
 import { upgradePlayerAttackSpeed } from "../upgrades";
+import { loadEnemyHealthBar, loadPlayerHealthBar } from "./ui";
 
 export default function loadCollisions() {
   const player = k.get("player")[0];
@@ -8,6 +9,7 @@ export default function loadCollisions() {
   player.onCollide("enemy", (e: GameObj) => {
     k.destroy(e);
     player.hurt(1);
+    loadPlayerHealthBar();
     k.shake(10);
 
     if (player.hp() <= 0) {
@@ -15,9 +17,10 @@ export default function loadCollisions() {
     }
   });
 
-  k.onCollide("projectile", "enemy", (pr: GameObj, e: GameObj) => {
+  k.onCollide("attack", "enemy", (pr: GameObj, e: GameObj) => {
     k.destroy(pr);
     e.hurt(1);
+    loadEnemyHealthBar();
     k.shake(2);
 
     
@@ -47,6 +50,6 @@ export default function loadCollisions() {
 
     score.text = `$ ${player.points}`;
     score.value = player.points;
-    upgradePlayerAttackSpeed();
+    // upgradePlayerAttackSpeed();
   });
 }

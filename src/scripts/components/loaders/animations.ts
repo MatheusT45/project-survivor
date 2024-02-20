@@ -15,7 +15,7 @@ export function loadPlayerAttack(player: GameObj) {
 
     if(closestEnemy) {
       const proj = k.add([
-        'projectile',
+        'attack',
         k.sprite("bullet", {
           anim: "idle",
         }),

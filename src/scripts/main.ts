@@ -147,7 +147,6 @@ k.loadSprite("dirt", "./full-dirt.png");
 //   }
 // })
 
-
 loadBackground()
 
 // Spawns entities

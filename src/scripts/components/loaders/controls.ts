@@ -2,14 +2,17 @@ import k from "../../kaboom";
 
 export default function loadControls() {
   const player = k.get("player")[0];
+
   k.onUpdate(() => {
     if (k.isKeyDown("left") || k.isKeyDown("a")) {
       player.scale.x = 2;
+
       player.move(-player.speed, 0);
     }
 
     if (k.isKeyDown("right") || k.isKeyDown("d")) {
       player.scale.x = -2;
+
       player.move(player.speed, 0);
     }
 
