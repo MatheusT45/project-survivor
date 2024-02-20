@@ -1,8 +1,8 @@
 import { GameObj } from "kaboom";
-import k from "../kaboom";
+import k from "../../kaboom";
 
-export default function Animations() {
-  k.loop(1, () => {
+export function loadPlayerAttack(player: GameObj) {
+  player.attackloopEvent = k.loop(player.attackSpeed, () => {
     const enemies = k.get("enemy");
     const player = k.get("player")[0];
 
@@ -32,8 +32,12 @@ export default function Animations() {
     })
     }
   });
-  
+};
+
+export default function loadAnimations() {
   const player = k.get("player")[0];
+
+  loadPlayerAttack(player);
 
   k.onUpdate('enemy', (e: GameObj) => {
     e.moveTo(player.pos.x, player.pos.y, e.speed);

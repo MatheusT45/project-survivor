@@ -1,6 +1,6 @@
-import k from "../kaboom";
+import k from "../../kaboom";
 
-export default function Controls() {
+export default function loadControls() {
   const player = k.get("player")[0];
   k.onUpdate(() => {
     if (k.isKeyDown("left") || k.isKeyDown("a")) {

@@ -1,6 +1,6 @@
-import k from "../kaboom";
+import k from "../../kaboom";
 
-export default function Background() {
+export default function loadBackground() {
   // First row
   k.add([
     k.sprite("dirt"),

@@ -1,9 +1,10 @@
 import k from "./kaboom";
-import Controls from "./components/controls";
-import Collisions from "./components/collisions";
-import Animations from './components/animations';
-import Spawn from './components/spawner';
-import Background from "./components/background";
+import loadControls from "./components/loaders/controls";
+import loadCollisions from "./components/loaders/collisions";
+import loadAnimations from './components/loaders/animations';
+import loadBackground from "./components/loaders/background";
+import spawn from './components/spawner';
+import loadUI from "./components/loaders/ui";
 
 k.loadSprite("player", "./spritesheet.png", {
   sliceX: 10,
@@ -146,17 +147,16 @@ k.loadSprite("dirt", "./full-dirt.png");
 //   }
 // })
 
-// Load background
-Background()
+
+loadBackground()
 
 // Spawns entities
-Spawn()
+spawn()
 
-// Load controls
-Controls()
+loadControls()
 
-// Load collisions
-Collisions()
+loadCollisions()
 
-// Load animations
-Animations()
+loadAnimations()
+
+loadUI()
