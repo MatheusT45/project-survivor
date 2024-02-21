@@ -3,6 +3,7 @@ import loadControls from "./components/loaders/controls";
 import loadCollisions from "./components/loaders/collisions";
 import loadAnimations from './components/loaders/animations';
 import loadBackground from "./components/loaders/background";
+import loadWaves from "./components/waves";
 import spawn from './components/spawner';
 import loadUI from "./components/loaders/ui";
 
@@ -148,6 +149,8 @@ k.loadSprite("dirt", "./full-dirt.png");
 // })
 
 loadBackground()
+
+loadWaves()
 
 // Spawns entities
 spawn()

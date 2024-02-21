@@ -1,6 +1,7 @@
 import { GameObj } from "kaboom";
 import k from "../../kaboom";
 import { loadEnemyHealthBar, loadPlayerHealthBar } from "./ui";
+import { checkWaveClear } from "../waves";
 
 export default function loadCollisions() {
   const player = k.get("player")[0];
@@ -14,6 +15,9 @@ export default function loadCollisions() {
     if (player.hp() <= 0) {
       k.destroy(player);
     }
+
+    
+    checkWaveClear();
   });
 
   k.onCollide("attack", "enemy", (pr: GameObj, e: GameObj) => {
@@ -25,6 +29,7 @@ export default function loadCollisions() {
     
     if (e.hp() <= 0) {
       k.destroy(e);
+      checkWaveClear();
 
       k.add([
         'collectible',
@@ -50,5 +55,7 @@ export default function loadCollisions() {
     score.text = `$ ${player.points}`;
     score.value = player.points;
     // upgradePlayerAttackSpeed();
+
+    checkWaveClear();
   });
 }

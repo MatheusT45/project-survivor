@@ -25,7 +25,9 @@ export default function spawn() {
 
   let enemyCounter = 0;
 
-  const enemySpawnerLoop = k.loop(2, () => {
+  const wave = k.get("wave-settings")[0];
+
+  const enemySpawnerLoop = k.loop(wave.enemySpawnRate, () => {
     const {x, y} = getRandomPosition();
 
     // prevents enemies from spawning on top of the player
@@ -52,8 +54,9 @@ export default function spawn() {
     loadEnemyHealthBar();
     enemyCounter++;
     
-    if(enemyCounter === 12) {
+    if(enemyCounter === wave.maxEnemies) {
       enemySpawnerLoop.cancel();
+      wave.hasMaxEnemiesReached = true;
     }
   });
 }
