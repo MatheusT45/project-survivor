@@ -6,6 +6,7 @@ export default function loadUI() {
     k.text("$ 0"),
     k.pos(24, 24),
     { value: 0 },
+    k.fixed(),
   ]);
   
   k.add([
@@ -13,6 +14,7 @@ export default function loadUI() {
     k.text("Wave 1"),
     k.anchor("center"),
     k.pos(k.center().x, 24),
+    k.fixed(),
   ]);
 
   loadPlayerHealthBar();

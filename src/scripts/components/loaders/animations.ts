@@ -42,4 +42,8 @@ export default function loadAnimations() {
   k.onUpdate('enemy', (e: GameObj) => {
     e.moveTo(player.pos.x, player.pos.y, e.speed);
   });
+
+  player.onUpdate(() => {
+    k.camPos(player.pos)
+})
 }

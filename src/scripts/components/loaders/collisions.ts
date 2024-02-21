@@ -1,6 +1,5 @@
 import { GameObj } from "kaboom";
 import k from "../../kaboom";
-import { upgradePlayerAttackSpeed } from "../upgrades";
 import { loadEnemyHealthBar, loadPlayerHealthBar } from "./ui";
 
 export default function loadCollisions() {
