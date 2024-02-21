@@ -14,6 +14,7 @@ export default function spawn() {
     k.rotate(0),
     k.anchor('center'),
     k.scale(2),
+    k.body(),
     {
       speed: 320, // custom property to store movement speed
       points: 0,
@@ -41,11 +42,13 @@ export default function spawn() {
       k.scale(1.5),
       k.rotate(0),
       k.anchor('center'),
+      k.body(),
       {
         speed: 120,
         maxHealth: 4,
       }
     ]);
+
     loadEnemyHealthBar();
     enemyCounter++;
     

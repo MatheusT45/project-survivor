@@ -1,68 +1,19 @@
 import k from "../../kaboom";
 
 export default function loadBackground() {
-  // First row
-  k.add([
-    k.sprite("dirt"),
-    k.pos(0, 0),
-    k.scale(0.5),
-  ]);
-
-  k.add([
-    k.sprite("dirt"),
-    k.pos(411, 0),
-    k.scale(0.5),
-  ]);
-
-  k.add([
-    k.sprite("dirt"),
-    k.pos(822, 0),
-    k.scale(0.5),
-  ]);
-
-  k.add([
-    k.sprite("dirt"),
-    k.pos(1233, 0),
-    k.scale(0.5),
-  ]);
-
-  k.add([
-    k.sprite("dirt"),
-    k.pos(1233, 0),
-    k.scale(0.5),
-  ]);
-
-  // Second row
-  k.add([
-    k.sprite("dirt"),
-    k.pos(0, 411),
-    k.scale(0.5),
-  ]);
-  
-
-  k.add([
-    k.sprite("dirt"),
-    k.pos(411, 411),
-    k.scale(0.5),
-  ]);
-
-  k.add([
-    k.sprite("dirt"),
-    k.pos(822, 411),
-    k.scale(0.5),
-  ]);
-
-  k.add([
-    k.sprite("dirt"),
-    k.pos(1233, 411),
-    k.scale(0.5),
-  ]);
-
-  k.add([
-    k.sprite("dirt"),
-    k.pos(1233, 411),
-    k.scale(0.5),
-  ]);
+  k.addLevel([
+    "====",
+    "====",
+  ], {
+    tileWidth: 411,
+    tileHeight: 411,
+    tiles: {
+        "=": () => [
+            k.sprite("dirt"),
+            k.scale(0.5),
+        ],
+    }
+  })
 
   // Map borders
   k.add([
@@ -70,6 +21,7 @@ export default function loadBackground() {
     k.color(0, 0, 255),
     k.pos(0, 0),
     k.area(),
+    k.body({ isStatic: true}),
   ])
 
   k.add([
@@ -77,6 +29,7 @@ export default function loadBackground() {
     k.color(0, 0, 255),
     k.pos(1644, 0),
     k.area(),
+    k.body({ isStatic: true}),
   ])
 
   k.add([
@@ -84,6 +37,7 @@ export default function loadBackground() {
     k.color(0, 0, 255),
     k.pos(0, 0),
     k.area(),
+    k.body({ isStatic: true}),
   ])
   
   k.add([
@@ -91,5 +45,6 @@ export default function loadBackground() {
     k.color(0, 0, 255),
     k.pos(0, 822),
     k.area(),
+    k.body({ isStatic: true}),
   ])
 }
