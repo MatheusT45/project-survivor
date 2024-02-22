@@ -41,7 +41,7 @@ export function spawnEnemyWave() {
         anim: "idle",
       }),
       k.area({ scale: 0.7 }),
-      k.health(4),
+      k.health(3),
       k.pos(x, y),
       k.scale(1.5),
       k.rotate(0),
@@ -49,7 +49,7 @@ export function spawnEnemyWave() {
       k.body(),
       {
         speed: 120,
-        maxHealth: 4,
+        maxHealth: 3,
       }
     ]);
 

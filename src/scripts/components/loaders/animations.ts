@@ -47,10 +47,22 @@ export function loadPlayerAttack(player: GameObj) {
   });
 };
 
+export function loadCollectibleAnimations() {
+  const player = k.get("player")[0];
+  const wave = k.get("wave-settings")[0];
+
+  k.onUpdate('collectible', (c: GameObj) => {
+    if (wave.shouldAbsorbEnergy) {
+      c.moveTo(player.pos.x, player.pos.y, 600);
+    }
+  }); 
+}
+
 export default function loadAnimations() {
   const player = k.get("player")[0];
 
   loadPlayerAttack(player);
+  loadCollectibleAnimations();
 
   k.onUpdate('enemy', (e: GameObj) => {
     e.moveTo(player.pos.x, player.pos.y, e.speed);

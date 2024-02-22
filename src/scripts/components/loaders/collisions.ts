@@ -22,7 +22,7 @@ export default function loadCollisions() {
       wave.hasMaxEnemiesReached = true;
     }
 
-    checkWaveClear(true);
+    checkWaveClear();
   });
 
   k.onCollide("attack", "enemy", (pr: GameObj, e: GameObj) => {
@@ -52,7 +52,7 @@ export default function loadCollisions() {
         wave.hasMaxEnemiesReached = true;
       }
 
-      checkWaveClear(true);
+      checkWaveClear();
     }
   });
 

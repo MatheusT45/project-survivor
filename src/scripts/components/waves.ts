@@ -14,13 +14,13 @@ export default function loadWaves() {
       enemySpawnRate: 2,
       hasMaxEnemiesReached: false,
       haveAllEnergiesBeenCollected: false,
+      shouldAbsorbEnergy: false
     }
   ]);
 }
 
 
-export function checkWaveClear(absorb: boolean = false) {
-  const player = k.get("player")[0];
+export function checkWaveClear() {
   const wave = k.get("wave-settings")[0];
   const enemies = k.get("enemy");
   const collectibles = k.get("collectible");
@@ -28,22 +28,19 @@ export function checkWaveClear(absorb: boolean = false) {
   if (wave.hasMaxEnemiesReached && enemies.length === 0) {
     wave.text = 'Wave Cleared';
 
-    k.onUpdate('collectible', (c: GameObj) => {
-      if (wave.hasMaxEnemiesReached && enemies.length === 0 && absorb) {
-        c.moveTo(player.pos.x, player.pos.y, 600);
-      }
-    });
-    
+    wave.shouldAbsorbEnergy = true;
+
     if (collectibles.length === 0) {
       wave.haveAllEnergiesBeenCollected = true;
 
-      k.wait(2, () => {
+      k.wait(4, () => {
         wave.value++;
         wave.text = `Wave ${wave.value}`;
         wave.hasMaxEnemiesReached = false;
         wave.haveAllEnergiesBeenCollected = false;
-        wave.maxEnemies += 14 + (wave.value * 2);
+        wave.maxEnemies += wave.maxEnemies + (wave.value * 2);
         wave.enemySpawnRate -= 0.1;
+        wave.shouldAbsorbEnergy = false;
 
         loadWaveUI();
         spawnEnemyWave();
