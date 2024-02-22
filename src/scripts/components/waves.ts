@@ -42,7 +42,7 @@ export function checkWaveClear(absorb: boolean = false) {
         wave.text = `Wave ${wave.value}`;
         wave.hasMaxEnemiesReached = false;
         wave.haveAllEnergiesBeenCollected = false;
-        wave.maxEnemies += 4;
+        wave.maxEnemies += 14 + (wave.value * 2);
         wave.enemySpawnRate -= 0.1;
 
         loadWaveUI();
