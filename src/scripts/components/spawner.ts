@@ -22,7 +22,10 @@ export default function spawn() {
       maxHealth: 8,
     },
   ]);
+  spawnEnemyWave();
+}
 
+export function spawnEnemyWave() {
   let enemyCounter = 0;
 
   const wave = k.get("wave-settings")[0];

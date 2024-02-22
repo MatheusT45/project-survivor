@@ -1,6 +1,7 @@
 import { GameObj } from "kaboom";
 import k from "../kaboom";
 import { loadWaveUI } from "./loaders/ui";
+import { spawnEnemyWave } from "./spawner";
 
 export default function loadWaves() {
   k.add([
@@ -32,6 +33,18 @@ export function checkWaveClear() {
 
     if (collectibles.length === 0) {
       wave.haveAllEnergiesBeenCollected = true;
+
+      k.wait(2, () => {
+        wave.value++;
+        wave.text = `Wave ${wave.value}`;
+        wave.hasMaxEnemiesReached = false;
+        wave.haveAllEnergiesBeenCollected = false;
+        wave.maxEnemies += 4;
+        wave.enemySpawnRate -= 0.1;
+
+        loadWaveUI();
+        spawnEnemyWave();
+      });
     }
   }
 

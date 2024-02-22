@@ -29,7 +29,6 @@ export default function loadCollisions() {
     
     if (e.hp() <= 0) {
       k.destroy(e);
-      checkWaveClear();
 
       k.add([
         'collectible',
@@ -42,6 +41,8 @@ export default function loadCollisions() {
         k.rotate(0),
         k.anchor("center"),
       ]);
+
+      checkWaveClear();
     }
   });
 
