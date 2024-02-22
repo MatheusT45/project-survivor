@@ -10,6 +10,7 @@ export default function loadWaves() {
       value: 1,
       text: `Wave ${1}`,
       maxEnemies: 12,
+      enemiesSpawned: 0,
       enemySpawnRate: 2,
       hasMaxEnemiesReached: false,
       haveAllEnergiesBeenCollected: false,
@@ -18,7 +19,7 @@ export default function loadWaves() {
 }
 
 
-export function checkWaveClear() {
+export function checkWaveClear(absorb: boolean = false) {
   const player = k.get("player")[0];
   const wave = k.get("wave-settings")[0];
   const enemies = k.get("enemy");
@@ -28,9 +29,11 @@ export function checkWaveClear() {
     wave.text = 'Wave Cleared';
 
     k.onUpdate('collectible', (c: GameObj) => {
-      c.moveTo(player.pos.x, player.pos.y, 600);
+      if (wave.hasMaxEnemiesReached && enemies.length === 0 && absorb) {
+        c.moveTo(player.pos.x, player.pos.y, 600);
+      }
     });
-
+    
     if (collectibles.length === 0) {
       wave.haveAllEnergiesBeenCollected = true;
 

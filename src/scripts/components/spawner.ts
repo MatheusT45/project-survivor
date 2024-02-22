@@ -20,14 +20,13 @@ export default function spawn() {
       points: 0,
       attackSpeed: 1,
       maxHealth: 8,
+      defeatedEnemies: 0
     },
   ]);
   spawnEnemyWave();
 }
 
 export function spawnEnemyWave() {
-  let enemyCounter = 0;
-
   const wave = k.get("wave-settings")[0];
 
   const enemySpawnerLoop = k.loop(wave.enemySpawnRate, () => {
@@ -55,11 +54,10 @@ export function spawnEnemyWave() {
     ]);
 
     loadEnemyHealthBar();
-    enemyCounter++;
-    
-    if(enemyCounter === wave.maxEnemies) {
+    wave.enemiesSpawned += 1;
+
+    if(wave.enemiesSpawned === wave.maxEnemies) {
       enemySpawnerLoop.cancel();
-      wave.hasMaxEnemiesReached = true;
     }
   });
 }

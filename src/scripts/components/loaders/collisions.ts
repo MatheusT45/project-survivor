@@ -5,6 +5,7 @@ import { checkWaveClear } from "../waves";
 
 export default function loadCollisions() {
   const player = k.get("player")[0];
+  const wave = k.get("wave-settings")[0];
 
   player.onCollide("enemy", (e: GameObj) => {
     k.destroy(e);
@@ -16,8 +17,12 @@ export default function loadCollisions() {
       k.destroy(player);
     }
 
-    
-    checkWaveClear();
+    player.defeatedEnemies += 1;
+    if (player.defeatedEnemies >= wave.maxEnemies) {
+      wave.hasMaxEnemiesReached = true;
+    }
+
+    checkWaveClear(true);
   });
 
   k.onCollide("attack", "enemy", (pr: GameObj, e: GameObj) => {
@@ -42,7 +47,12 @@ export default function loadCollisions() {
         k.anchor("center"),
       ]);
 
-      checkWaveClear();
+      player.defeatedEnemies += 1;
+      if (player.defeatedEnemies >= wave.maxEnemies) {
+        wave.hasMaxEnemiesReached = true;
+      }
+
+      checkWaveClear(true);
     }
   });
 
