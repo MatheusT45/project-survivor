@@ -78,6 +78,10 @@ k.loadSprite("energy", "./spritesheet.png", {
 
 k.loadSprite("dirt", "./full-dirt.png");
 
+
+k.loadSprite("arrow-button", "./arrow.png");
+k.loadSprite("pointer", "./pointer.png");
+
 // k.loadSprite('dirt', "./tilemap.png", {
 //   sliceX: 7,
 //   sliceY: 1,
@@ -179,10 +183,10 @@ loadWaves()
 // Spawns entities
 spawn()
 
-loadControls()
-
 loadCollisions()
 
 loadAnimations()
 
 loadUI()
+
+loadControls()

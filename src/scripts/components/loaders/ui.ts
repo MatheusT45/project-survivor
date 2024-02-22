@@ -1,3 +1,4 @@
+import { GameObj } from "kaboom";
 import k from "../../kaboom";
 
 export default function loadUI() {
@@ -11,6 +12,7 @@ export default function loadUI() {
 
   loadPlayerHealthBar();
   loadWaveUI();
+  loadMobileControlUI();
 }
 
 export function loadWaveUI() {
@@ -76,4 +78,123 @@ export function loadEnemyHealthBar() {
       k.pos(0, 20),
     ]);
   });
+}
+
+export function loadMobileControlUI() {
+  const player = k.get("player")[0];
+
+  let moveUp: GameObj;
+  let moveRight: GameObj;
+  let moveLeft: GameObj;
+  let moveDown: GameObj;
+  let pointer: GameObj;
+
+  k.onMousePress(() => {
+    player.play('walking');
+    moveUp = k.add([
+      k.sprite("arrow-button"),
+      k.pos(k.mousePos().x, k.mousePos().y - 70),
+      k.scale(3),
+      k.area(),
+      k.rotate(180),
+      k.anchor("center"),
+      k.fixed(),
+      "arrow",
+      "arrow-up",
+      k.z(1),
+      k.opacity(0.5)
+    ]);
+  
+    moveRight = k.add([
+      k.sprite("arrow-button"),
+      k.pos(k.mousePos().x + 75, k.mousePos().y),
+      k.scale(3),
+      k.area(),
+      k.anchor("center"),
+      k.rotate(270),
+      k.fixed(),
+      "arrow",
+      "arrow-right",
+      k.z(1),
+      k.opacity(0.5)
+    ]);
+  
+    moveLeft = k.add([
+      k.sprite("arrow-button"),
+      k.pos(k.mousePos().x - 75, k.mousePos().y),
+      k.scale(3),
+      k.area(),
+      k.anchor("center"),
+      k.rotate(90),
+      k.fixed(),
+      "arrow",
+      "arrow-left",
+      k.z(1),
+      k.opacity(0.5)
+    ]);
+  
+    moveDown = k.add([
+      k.sprite("arrow-button"),
+      k.pos(k.mousePos().x, k.mousePos().y + 70),
+      k.scale(3),
+      k.area(),
+      k.anchor("center"),
+      k.fixed(),
+      "arrow",
+      "arrow-down",
+      k.z(1),
+      k.opacity(0.5)
+    ]);
+  
+    pointer = k.add([
+      k.sprite("pointer"),
+      k.pos(k.mousePos()),
+      k.scale(2),
+      k.area({ scale: 1.5 }),
+      k.anchor("center"),
+      k.fixed(),
+      "pointer",
+      k.opacity(0.2)
+    ]);
+    
+    pointer.onUpdate(() => {
+      if (pointer.isColliding(moveUp)) {
+        if (player.pos.y > 0) {
+          player.move(0, -player.speed);
+        }
+      }
+      if (pointer.isColliding(moveDown)) {
+        if (player.pos.y < k.height()) {
+          player.move(0, player.speed);
+        }
+      }
+      if (pointer.isColliding(moveLeft)) {
+        if (player.pos.x > 0) {
+          player.scale.x = 2;
+          player.move(-player.speed, 0);
+        }
+      }
+      if (pointer.isColliding(moveRight)) {
+        if (player.pos.x < k.width()) {
+          player.scale.x = -2;
+          player.move(player.speed, 0);
+        }
+      }
+    });
+  });
+
+  k.onMouseDown(() => {
+    pointer.pos = k.mousePos();
+  });
+
+  k.onMouseRelease(() => {
+    player.play('idle');
+    pointer.pos.x = 0;
+    pointer.pos.y = 0;
+    k.destroy(moveUp);
+    k.destroy(moveRight);
+    k.destroy(moveLeft);
+    k.destroy(moveDown);
+    k.destroy(pointer);
+  })
 }
