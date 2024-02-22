@@ -16,8 +16,32 @@ k.loadSprite("player", "./spritesheet.png", {
           to: 19,
           loop: true,
       },
+      walking: {
+        from: 20,
+        to: 29,
+        loop: true,
+        pingpong: true,
+    },
   },
 });
+
+k.loadSprite("hand-motion", "./spritesheet.png", {
+  sliceX: 10,
+  sliceY: 10,
+  anims: {
+      idle: {
+        from: 39,
+        to: 39,
+        loop: true,
+      },
+      throwing: {
+          from: 30,
+          to: 39,
+          loop: true,
+      },
+  },
+});
+
 
 k.loadSprite("enemy", "./spritesheet.png", {
   sliceX: 10,

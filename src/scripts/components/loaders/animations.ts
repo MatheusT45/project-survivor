@@ -14,6 +14,19 @@ export function loadPlayerAttack(player: GameObj) {
     });
 
     if(closestEnemy) {
+      const handMotion = k.add([
+        k.sprite('hand-motion', {
+          anim: "throwing",
+        }),
+        k.anchor('center'),
+        k.pos(player.pos),
+        k.scale(player.scale.x, 4),
+      ]);
+
+      k.wait(1, () => {
+        handMotion.destroy();
+      });
+
       const proj = k.add([
         'attack',
         k.sprite("bullet", {
@@ -28,7 +41,7 @@ export function loadPlayerAttack(player: GameObj) {
       ])
 
       proj.onUpdate(() => {
-        proj.angle += 1000 * k.dt()
+        proj.angle += 2000 * k.dt()
     })
     }
   });
