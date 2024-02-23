@@ -44,7 +44,6 @@ export function spawnEnemyWave() {
       k.health(3),
       k.pos(x, y),
       k.scale(1.5),
-      k.rotate(0),
       k.anchor('center'),
       k.body(),
       {
