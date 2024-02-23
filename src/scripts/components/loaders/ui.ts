@@ -89,7 +89,8 @@ export function loadMobileControlUI() {
   let moveDown: GameObj;
   let pointer: GameObj;
 
-  k.onMousePress(() => {
+  k.onMousePress((m) => {
+    if (m !== "left") return;
     player.play('walking');
     moveUp = k.add([
       k.sprite("arrow-button"),
@@ -159,22 +160,26 @@ export function loadMobileControlUI() {
     
     pointer.onUpdate(() => {
       if (pointer.isColliding(moveUp)) {
+        if (k.isKeyDown("up") || k.isKeyDown("w")) return;
         if (player.pos.y > 0) {
           player.move(0, -player.speed);
         }
       }
       if (pointer.isColliding(moveDown)) {
+        if (k.isKeyDown("down") || k.isKeyDown("s")) return;
         if (player.pos.y < k.height()) {
           player.move(0, player.speed);
         }
       }
       if (pointer.isColliding(moveLeft)) {
+        if (k.isKeyDown("left") || k.isKeyDown("a")) return;
         if (player.pos.x > 0) {
           player.scale.x = 2;
           player.move(-player.speed, 0);
         }
       }
       if (pointer.isColliding(moveRight)) {
+        if (k.isKeyDown("right") || k.isKeyDown("d")) return;
         if (player.pos.x < k.width()) {
           player.scale.x = -2;
           player.move(player.speed, 0);
@@ -183,11 +188,13 @@ export function loadMobileControlUI() {
     });
   });
 
-  k.onMouseDown(() => {
+  k.onMouseDown((m) => {
+    if (m !== "left") return;
     pointer.pos = k.mousePos();
   });
 
-  k.onMouseRelease(() => {
+  k.onMouseRelease((m) => {
+    if (m !== "left") return;
     player.play('idle');
     pointer.pos.x = 0;
     pointer.pos.y = 0;
