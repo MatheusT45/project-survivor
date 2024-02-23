@@ -17,7 +17,7 @@ export default function loadBackground() {
 
   // Map borders
   k.add([
-    k.rect(10, 822),
+    k.rect(50, 822),
     k.color(0, 0, 255),
     k.pos(0, 0),
     k.area(),
@@ -25,7 +25,7 @@ export default function loadBackground() {
   ])
 
   k.add([
-    k.rect(10, 822),
+    k.rect(50, 822),
     k.color(0, 0, 255),
     k.pos(1644, 0),
     k.area(),
@@ -33,7 +33,7 @@ export default function loadBackground() {
   ])
 
   k.add([
-    k.rect(1644, 10),
+    k.rect(1644, 50),
     k.color(0, 0, 255),
     k.pos(0, 0),
     k.area(),
@@ -41,7 +41,7 @@ export default function loadBackground() {
   ])
   
   k.add([
-    k.rect(1654, 10),
+    k.rect(1644 + 50, 50),
     k.color(0, 0, 255),
     k.pos(0, 822),
     k.area(),
