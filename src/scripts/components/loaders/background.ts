@@ -5,8 +5,8 @@ export default function loadBackground() {
     "====",
     "====",
   ], {
-    tileWidth: 411,
-    tileHeight: 411,
+    tileWidth: 410,
+    tileHeight: 410,
     tiles: {
         "=": () => [
             k.sprite("dirt"),
@@ -16,33 +16,41 @@ export default function loadBackground() {
   })
 
   // Map borders
+  const borderSize = 50;
+  const borderHeight = 822;
+  const borderwidth = 1644;
+
   k.add([
-    k.rect(50, 822),
+    k.rect(borderSize, borderHeight + borderSize + borderSize),
     k.color(0, 0, 255),
-    k.pos(0, 0),
+    k.opacity(0.2),
+    k.pos(-borderSize, -borderSize),
     k.area(),
     k.body({ isStatic: true}),
   ])
 
   k.add([
-    k.rect(50, 822),
+    k.rect(borderSize, borderHeight),
     k.color(0, 0, 255),
-    k.pos(1644, 0),
+    k.opacity(0.2),
+    k.pos(borderwidth, 0),
     k.area(),
     k.body({ isStatic: true}),
   ])
 
   k.add([
-    k.rect(1644, 50),
+    k.rect(borderwidth + borderSize , borderSize),
     k.color(0, 0, 255),
-    k.pos(0, 0),
+    k.opacity(0.2),
+    k.pos(0, -borderSize),
     k.area(),
     k.body({ isStatic: true}),
   ])
   
   k.add([
-    k.rect(1644 + 50, 50),
+    k.rect(borderwidth + borderSize, borderSize),
     k.color(0, 0, 255),
+    k.opacity(0.2),
     k.pos(0, 822),
     k.area(),
     k.body({ isStatic: true}),
