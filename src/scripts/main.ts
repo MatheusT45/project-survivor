@@ -48,8 +48,23 @@ k.loadSprite("enemy", "./spritesheet.png", {
   sliceY: 10,
   anims: {
       idle: {
-          from: 99,
+          from: 96,
           to: 99,
+          loop: true,
+          pingpong: true,
+      },
+  },
+});
+
+k.loadSprite("enemy-spark", "./spritesheet.png", {
+  sliceX: 10,
+  sliceY: 10,
+  anims: {
+      idle: {
+          from: 92,
+          to: 95,
+          loop: true,
+          pingpong: true,
       },
   },
 });
