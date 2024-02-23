@@ -91,7 +91,7 @@ k.loadSprite("energy", "./spritesheet.png", {
   },
 });
 
-k.loadSprite("dirt", "./full-dirtv2.png");
+k.loadSprite("dirt", "./full-dirt.png");
 
 
 k.loadSprite("arrow-button", "./arrow.png");
