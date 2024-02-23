@@ -1,33 +1,32 @@
 {
-    "name": "project-survivor",
-    "version": "0.0.1",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "format": "prettier \"**/*.{ts,vue,js,json,jsx,tsx,css,scss,html,md,mdx}\" --write",
-        "start": "parcel serve src/index.html",
-        "build": "parcel build src/index.html --no-source-maps",
-        "deploy": "npm run build && netlify deploy --prod --dir=dist"
-    },
-    "keywords": [],
-    "author": "Matheus T.",
-    "license": "MIT",
-    "staticFiles": {
-        "staticPath": "src/static",
-        "watcherGlob": "**"
-    },
-    "dependencies": {
-        "@parcel/config-default": "^2.11.0",
-        "@parcel/core": "^2.11.0",
-        "kaboom": "^3000.1.17"
-    },
-    "devDependencies": {
-        "@parcel/transformer-sass": "^2.11.0",
-        "parcel": "^2.11.0",
-        "parcel-reporter-static-files-copy": "^1.5.3",
-        "prettier": "^3.2.5",
-        "sass": "^1.71.0",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.3.3"
-    }
+  "name": "project-survivor",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "format": "prettier \"**/*.{ts,vue,js,json,jsx,tsx,css,scss,html,md,mdx}\" --write",
+    "start": "parcel serve src/index.html",
+    "build": "parcel build src/index.html --no-source-maps",
+    "deploy": "npm run build && netlify deploy --prod --dir=dist"
+  },
+  "keywords": [],
+  "author": "Matheus T.",
+  "license": "MIT",
+  "staticFiles": {
+    "staticPath": "src/static",
+    "watcherGlob": "**"
+  },
+  "dependencies": {
+    "@parcel/config-default": "^2.11.0",
+    "@parcel/core": "^2.11.0",
+    "kaboom": "^3000.1.17"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
+    "parcel": "^2.11.0",
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "prettier": "^3.2.5",
+    "sass": "^1.71.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
 }
