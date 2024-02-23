@@ -11,7 +11,7 @@ export default function loadCollisions() {
     k.destroy(e);
     player.hurt(1);
     loadPlayerHealthBar();
-    k.shake(10);
+    k.shake(5);
 
     if (player.hp() <= 0) {
       k.destroy(player);
@@ -29,7 +29,6 @@ export default function loadCollisions() {
     k.destroy(pr);
     e.hurt(1);
     loadEnemyHealthBar();
-    k.shake(2);
 
     
     if (e.hp() <= 0) {
@@ -60,7 +59,6 @@ export default function loadCollisions() {
     const score = k.get("points-counter")[0];
 
     k.destroy(c);
-    k.shake(1);
     player.points += 1;
 
     score.text = `$ ${player.points}`;
