@@ -16,12 +16,13 @@ export default function loadBackground() {
   })
 
   // Map borders
-  const borderSize = 50;
-  const borderHeight = 822;
-  const borderwidth = 1644;
+  const borderSize = 120;
+  const borderHeight = 820;
+  const borderwidth = 1640;
 
   k.add([
-    k.rect(borderSize, borderHeight + borderSize + borderSize),
+    'left-border',
+    k.rect(borderSize , borderHeight + borderSize + borderSize),
     k.color(0, 0, 255),
     k.opacity(0.2),
     k.pos(-borderSize, -borderSize),
@@ -30,28 +31,31 @@ export default function loadBackground() {
   ])
 
   k.add([
-    k.rect(borderSize, borderHeight),
+    'right-border',
+    k.rect(borderSize, borderHeight + borderSize + borderSize),
     k.color(0, 0, 255),
     k.opacity(0.2),
-    k.pos(borderwidth, 0),
+    k.pos(borderwidth, -borderSize),
     k.area(),
     k.body({ isStatic: true}),
   ])
 
   k.add([
-    k.rect(borderwidth + borderSize , borderSize),
+    'top-border',
+    k.rect(borderwidth + borderSize + borderSize, borderSize),
     k.color(0, 0, 255),
     k.opacity(0.2),
-    k.pos(0, -borderSize),
+    k.pos(-borderSize, -borderSize),
     k.area(),
     k.body({ isStatic: true}),
   ])
   
   k.add([
-    k.rect(borderwidth + borderSize, borderSize),
+    'bottom-border',
+    k.rect(borderwidth + borderSize + borderSize, borderSize),
     k.color(0, 0, 255),
     k.opacity(0.2),
-    k.pos(0, 822),
+    k.pos(-borderSize, borderHeight),
     k.area(),
     k.body({ isStatic: true}),
   ])

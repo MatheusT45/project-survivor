@@ -39,9 +39,9 @@ export default function loadCollisions() {
         k.sprite("energy", {
           anim: "idle",
         }),
-        k.area({ scale: 2 }),
+        k.area({ scale: 3 }),
         k.pos(e.pos),
-        k.scale(1),
+        k.scale(0.8),
         k.rotate(0),
         k.anchor("center"),
       ]);
