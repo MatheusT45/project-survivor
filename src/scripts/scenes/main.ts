@@ -9,7 +9,7 @@ import loadUI from "../components/loaders/ui";
 
 export function loadMain() {
   k.scene("main", () => {
-    k.loadSprite("player", "./spritesheet.png", {
+    k.loadSprite("player", "./sprites/spritesheet.png", {
     sliceX: 10,
     sliceY: 10,
     anims: {
@@ -27,7 +27,7 @@ export function loadMain() {
     },
     });
     
-    k.loadSprite("hand-motion", "./spritesheet.png", {
+    k.loadSprite("hand-motion", "./sprites/spritesheet.png", {
     sliceX: 10,
     sliceY: 10,
     anims: {
@@ -45,7 +45,7 @@ export function loadMain() {
     });
     
     
-    k.loadSprite("enemy", "./spritesheet.png", {
+    k.loadSprite("enemy", "./sprites/spritesheet.png", {
     sliceX: 10,
     sliceY: 10,
     anims: {
@@ -58,7 +58,7 @@ export function loadMain() {
     },
     });
     
-    k.loadSprite("enemy-spark", "./spritesheet.png", {
+    k.loadSprite("enemy-spark", "./sprites/spritesheet.png", {
     sliceX: 10,
     sliceY: 10,
     anims: {
@@ -71,7 +71,7 @@ export function loadMain() {
     },
     });
     
-    k.loadSprite("bullet", "./spritesheet.png", {
+    k.loadSprite("bullet", "./sprites/spritesheet.png", {
     sliceX: 10,
     sliceY: 10,
     anims: {
@@ -82,7 +82,7 @@ export function loadMain() {
     },
     });
     
-    k.loadSprite("energy", "./spritesheet.png", {
+    k.loadSprite("energy", "./sprites/spritesheet.png", {
     sliceX: 10,
     sliceY: 10,
     anims: {
@@ -93,13 +93,13 @@ export function loadMain() {
     },
     });
     
-    k.loadSprite("dirt", "./full-dirt.png");
+    k.loadSprite("dirt", "./sprites/full-dirt.png");
     
     
-    k.loadSprite("arrow-button", "./arrow.png");
-    k.loadSprite("pointer", "./pointer.png");
+    k.loadSprite("arrow-button", "./sprites/arrow.png");
+    k.loadSprite("pointer", "./sprites/pointer.png");
     
-    // k.loadSprite('dirt', "./tilemap.png", {
+    // k.loadSprite('dirt', "./sprites/tilemap.png", {
     //   sliceX: 7,
     //   sliceY: 1,
     //   anims: {

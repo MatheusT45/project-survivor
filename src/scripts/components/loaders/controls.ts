@@ -6,22 +6,30 @@ export default function loadControls() {
   k.onUpdate(() => {
     if (k.isKeyDown("left") || k.isKeyDown("a")) {
       player.scale.x = 2;
-      player.move(-player.speed, 0);
+      player.movex = -1;
     }
 
     if (k.isKeyDown("right") || k.isKeyDown("d")) {
       player.scale.x = -2;
-
-      player.move(player.speed, 0);
+      player.movex = 1;
     }
 
     if (k.isKeyDown("up") || k.isKeyDown("w")) {
-      player.move(0, -player.speed);
+      player.movey = -1;
     }
 
     if (k.isKeyDown("down") || k.isKeyDown("s")) {
-      player.move(0, player.speed);
+      player.movey = 1;
     }
+
+    if (player.movex !== 0 && player.movey !== 0) {
+      player.move(player.movex * (player.speed * 0.7), player.movey * (player.speed * 0.7));
+    } else {
+      player.move(player.movex * player.speed, player.movey * player.speed);
+    }
+
+    player.movex = 0;
+    player.movey = 0;
 
     if (
       k.isKeyPressed('w') ||

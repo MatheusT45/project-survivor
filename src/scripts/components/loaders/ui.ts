@@ -92,11 +92,12 @@ export function loadMobileControlUI() {
   k.onMousePress((m) => {
     if (m !== "left") return;
     player.play('walking');
+
     moveUp = k.add([
       k.sprite("arrow-button"),
       k.pos(k.mousePos().x, k.mousePos().y - 70),
       k.scale(3),
-      k.area(),
+      k.area({ scale: k.vec2(0.3, 0.4) }),
       k.rotate(180),
       k.anchor("center"),
       k.fixed(),
@@ -110,7 +111,7 @@ export function loadMobileControlUI() {
       k.sprite("arrow-button"),
       k.pos(k.mousePos().x + 75, k.mousePos().y),
       k.scale(3),
-      k.area(),
+      k.area({ scale: k.vec2(0.3, 0.4) }),
       k.anchor("center"),
       k.rotate(270),
       k.fixed(),
@@ -124,7 +125,7 @@ export function loadMobileControlUI() {
       k.sprite("arrow-button"),
       k.pos(k.mousePos().x - 75, k.mousePos().y),
       k.scale(3),
-      k.area(),
+      k.area({ scale: k.vec2(0.3, 0.4) }),
       k.anchor("center"),
       k.rotate(90),
       k.fixed(),
@@ -138,7 +139,7 @@ export function loadMobileControlUI() {
       k.sprite("arrow-button"),
       k.pos(k.mousePos().x, k.mousePos().y + 70),
       k.scale(3),
-      k.area(),
+      k.area({ scale: k.vec2(0.3, 0.4) }),
       k.anchor("center"),
       k.fixed(),
       "arrow",
@@ -161,22 +162,31 @@ export function loadMobileControlUI() {
     pointer.onUpdate(() => {
       if (pointer.isColliding(moveUp)) {
         if (k.isKeyDown("up") || k.isKeyDown("w")) return;
-        player.move(0, -player.speed);
+        player.movey = -1;
       }
       if (pointer.isColliding(moveDown)) {
         if (k.isKeyDown("down") || k.isKeyDown("s")) return;
-        player.move(0, player.speed);
+        player.movey = 1;
       }
       if (pointer.isColliding(moveLeft)) {
         if (k.isKeyDown("left") || k.isKeyDown("a")) return;
         player.scale.x = 2;
-        player.move(-player.speed, 0);
+        player.movex = -1;
       }
       if (pointer.isColliding(moveRight)) {
         if (k.isKeyDown("right") || k.isKeyDown("d")) return;
         player.scale.x = -2;
-        player.move(player.speed, 0);
+        player.movex = 1;
       }
+
+      if (player.movex !== 0 && player.movey !== 0) {
+        player.move(player.movex * (player.speed * 0.7), player.movey * (player.speed * 0.7));
+      } else {
+        player.move(player.movex * player.speed, player.movey * player.speed);
+      }
+  
+      player.movex = 0;
+      player.movey = 0;
     });
   });
 

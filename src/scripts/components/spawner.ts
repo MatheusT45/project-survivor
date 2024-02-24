@@ -20,7 +20,9 @@ export default function spawn() {
       points: 0,
       attackSpeed: 1,
       maxHealth: 8,
-      defeatedEnemies: 0
+      defeatedEnemies: 0,
+      movex: 0,
+      movey: 0,
     },
   ]);
   spawnEnemyWave();
