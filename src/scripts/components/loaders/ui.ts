@@ -161,29 +161,21 @@ export function loadMobileControlUI() {
     pointer.onUpdate(() => {
       if (pointer.isColliding(moveUp)) {
         if (k.isKeyDown("up") || k.isKeyDown("w")) return;
-        if (player.pos.y > 0) {
-          player.move(0, -player.speed);
-        }
+        player.move(0, -player.speed);
       }
       if (pointer.isColliding(moveDown)) {
         if (k.isKeyDown("down") || k.isKeyDown("s")) return;
-        if (player.pos.y < k.height()) {
-          player.move(0, player.speed);
-        }
+        player.move(0, player.speed);
       }
       if (pointer.isColliding(moveLeft)) {
         if (k.isKeyDown("left") || k.isKeyDown("a")) return;
-        if (player.pos.x > 0) {
-          player.scale.x = 2;
-          player.move(-player.speed, 0);
-        }
+        player.scale.x = 2;
+        player.move(-player.speed, 0);
       }
       if (pointer.isColliding(moveRight)) {
         if (k.isKeyDown("right") || k.isKeyDown("d")) return;
-        if (player.pos.x < k.width()) {
-          player.scale.x = -2;
-          player.move(player.speed, 0);
-        }
+        player.scale.x = -2;
+        player.move(player.speed, 0);
       }
     });
   });
