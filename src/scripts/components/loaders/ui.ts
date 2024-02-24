@@ -182,18 +182,20 @@ export function loadMobileControlUI() {
 
   k.onMouseDown((m) => {
     if (m !== "left") return;
-    pointer.pos = k.mousePos();
+    if (pointer) pointer.pos = k.mousePos();
   });
 
   k.onMouseRelease((m) => {
     if (m !== "left") return;
+    if(pointer) {
+      pointer.pos.x = 0;
+      pointer.pos.y = 0;
+      k.destroy(moveUp);
+      k.destroy(moveRight);
+      k.destroy(moveLeft);
+      k.destroy(moveDown);
+      k.destroy(pointer);
+    }
     player.play('idle');
-    pointer.pos.x = 0;
-    pointer.pos.y = 0;
-    k.destroy(moveUp);
-    k.destroy(moveRight);
-    k.destroy(moveLeft);
-    k.destroy(moveDown);
-    k.destroy(pointer);
   })
 }

@@ -14,7 +14,7 @@ export default function loadCollisions() {
     k.shake(5);
 
     if (player.hp() <= 0) {
-      k.destroy(player);
+      k.go("end", player.points, wave.value, player.defeatedEnemies, player.points);
     }
 
     player.defeatedEnemies += 1;
